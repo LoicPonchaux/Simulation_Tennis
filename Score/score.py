@@ -8,7 +8,10 @@ class Score():
         self.gameJ2 = game.Game()
 
     def displayScore(self):
-        return str(self.gameJ1.number) + " Jeu à " + str(self.gameJ2.number)
+        if (self.gameJ1.number > self.gameJ2.number):
+            return str(self.gameJ1.number) + " Jeu à " + str(self.gameJ2.number)
+        else:
+            return str(self.gameJ2.number) + " Jeu à " + str(self.gameJ1.number)
 
     def incrementScore(self, val):
         if (val == 1):
