@@ -45,9 +45,10 @@ class Match:
 J1lastname = input("Nom Joueur 1\n")
 J1name = input("Prénom Joueur 1\n")
 
-J2lastname = input("Nom Joueur 1\n")
-J2name = input("Prénom Joueur 1\n")
+J2lastname = input("Nom Joueur 2\n")
+J2name = input("Prénom Joueur 2\n")
 
 M1 = Match(J1lastname, J1name, J2lastname, J2name)
 print(M1.displayMatch())
 print(M1.play())
+input()
