@@ -28,13 +28,20 @@ class Match:
         while (match):
             if (set == 1):
                 match = self.playSet(self.score.set1)
-                if (match == False and set == 1):
-                    print(set, match)
+                if (match == False):
                     set = 2
+                    self.nbJeu = 6
                     match = True
             if (set == 2):
                 match = self.playSet(self.score.set2)
-
+                if (self.score.set1.winner == self.score.set2.winner):
+                    return self.score.displayScore()
+                if (match == False):
+                    set = 3
+                    self.nbJeu = 6
+                    match = True
+            if (set == 3):
+                match = self.playSet(self.score.set3)
         # return self.resultMatch() + " " + self.score.displayScore()
         return self.score.displayScore()
 
