@@ -11,5 +11,5 @@ class Set():
 
     """Méthode pour incrémenter un set"""
 
-    def defineWinner(self, name):
-        self.winner = str(name)
+    def defineWinner(self, Player):
+        self.winner = Player

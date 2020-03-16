@@ -7,45 +7,47 @@ class Match:
     def __init__(self, lastNameJ1, nameJ1, lastNameJ2, nameJ2):
         self.J1 = player.Player(lastNameJ1, nameJ1, 37, 85, 85, 50, 50)
         self.J2 = player.Player(lastNameJ2, nameJ2, 34, 98, 75, 50, 50)
-        self.score = score.Score()
+        self.score = score.Score(self.J1, self.J2)
         self.nbJeu = 6
         self.nbSet = 2
         self.numberGame = 0
+        self.winner = None
 
     def displayMatch(self):
         return self.J1.player_presentation() + " VS " + self.J2.player_presentation()
 
     def resultMatch(self):
-        # if (self.score.gameJ1.number > self.score.gameJ2.number):
-        #    return "Vainqueur : " + self.J1.player_presentation()
-        # else:
-        #    return "Vainqueur : " + self.J2.player_presentation()
-        pass
+        if (self.score.gameJ1.number > self.score.gameJ2.number):
+            return "Vainqueur : " + self.J1.player_presentation()
+        else:
+            return "Vainqueur : " + self.J2.player_presentation()
 
     def play(self):
         match = True
         set = 1;
         while (match):
             if (set == 1):
-                match = self.playSet(self.score.set1)
+                match = self.playGame(self.score.set1)
                 if (match == False):
                     set = 2
                     self.nbJeu = 6
                     match = True
             if (set == 2):
-                match = self.playSet(self.score.set2)
+                match = self.playGame(self.score.set2)
                 if (self.score.set1.winner == self.score.set2.winner):
+                    self.winner = self.score.set1.winner
                     return self.score.displayScore()
                 if (match == False):
                     set = 3
                     self.nbJeu = 6
                     match = True
             if (set == 3):
-                match = self.playSet(self.score.set3)
+                match = self.playGame(self.score.set3)
         # return self.resultMatch() + " " + self.score.displayScore()
+        self.winner = self.score.set3.winner
         return self.score.displayScore()
 
-    def playSet(self, set):
+    def playGame(self, set):
         if self.numberGame % 2 == 0:
             J1 = random.randint(0, 10) * self.J1.service
             J2 = random.randint(0, 10) * self.J2.back
@@ -63,9 +65,9 @@ class Match:
             self.nbJeu += 1
         if (set.gameJ1.number == self.nbJeu or set.gameJ2.number == self.nbJeu):
             if (set.gameJ1.number == self.nbJeu):
-                set.defineWinner(self.J1.lastname)
+                set.defineWinner(self.J1)
             else:
-                set.defineWinner(self.J2.lastname)
+                set.defineWinner(self.J2)
             return False
         return True
 
@@ -78,5 +80,5 @@ J2name = input("Prénom Joueur 2\n")
 M1 = Match(J1lastname, J1name, J2lastname, J2name)
 print(M1.displayMatch())
 print(M1.play())
-print(M1.score.set1.winner)
+print(M1.winner)
 input()
