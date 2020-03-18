@@ -16,25 +16,25 @@ class Score():
     def displayScore(self):
         if (self.set1.winner == self.set2.winner):
             if (self.J1 == self.set1.winner):
-                return "Vainqueur : " + str(self.J1) + \
-                       "2 set à 0\n" + \
+                return "Vainqueur : " + str(self.J1.player_presentation()) + \
+                       "\n2 set à 0\n" + \
                        str(self.set1.gameJ1.number) + "/" + str(self.set1.gameJ2.number) + "\n" + \
                        str(self.set2.gameJ1.number) + "/" + str(self.set2.gameJ2.number)
             else:
-                return "Vainqueur : " + str(self.J2) + \
-                       "2 set à 0\n" + \
+                return "Vainqueur : " + str(self.J2.player_presentation()) + \
+                       "\n2 set à 0\n" + \
                        str(self.set1.gameJ2.number) + "/" + str(self.set1.gameJ1.number) + "\n" + \
                        str(self.set2.gameJ2.number) + "/" + str(self.set2.gameJ1.number)
         else:
             if (self.J1 == self.set3.winner):
-                return "Vainqueur : " + str(self.J1) + \
-                       "2 set à 1\n" + \
+                return "Vainqueur : " + str(self.J1.player_presentation()) + \
+                       "\n2 set à 1\n" + \
                        str(self.set1.gameJ1.number) + "/" + str(self.set1.gameJ2.number) + "\n" + \
                        str(self.set2.gameJ1.number) + "/" + str(self.set2.gameJ2.number) + "\n" + \
                        str(self.set3.gameJ1.number) + "/" + str(self.set3.gameJ2.number)
             else:
-                return "Vainqueur : " + str(self.J2) + \
-                       "2 set à 1\n" + \
+                return "Vainqueur : " + str(self.J2.player_presentation()) + \
+                       "\n2 set à 1\n" + \
                        str(self.set1.gameJ2.number) + "/" + str(self.set1.gameJ1.number) + "\n" + \
                        str(self.set2.gameJ2.number) + "/" + str(self.set2.gameJ1.number) + "\n" + \
                        str(self.set3.gameJ2.number) + "/" + str(self.set3.gameJ1.number)

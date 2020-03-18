@@ -16,11 +16,7 @@ class Match:
     def displayMatch(self):
         return self.J1.player_presentation() + " VS " + self.J2.player_presentation()
 
-    def resultMatch(self):
-        if (self.score.gameJ1.number > self.score.gameJ2.number):
-            return "Vainqueur : " + self.J1.player_presentation()
-        else:
-            return "Vainqueur : " + self.J2.player_presentation()
+
 
     def play(self):
         match = True
@@ -45,6 +41,7 @@ class Match:
                 match = self.playGame(self.score.set3)
         # return self.resultMatch() + " " + self.score.displayScore()
         self.winner = self.score.set3.winner
+        print(self.resultMatch())
         return self.score.displayScore()
 
     def playGame(self, set):
@@ -80,5 +77,4 @@ J2name = input("Prénom Joueur 2\n")
 M1 = Match(J1lastname, J1name, J2lastname, J2name)
 print(M1.displayMatch())
 print(M1.play())
-print(M1.winner)
 input()

@@ -11,4 +11,3 @@ class Player(identity.Identity, features.Features):
 
     def player_presentation(self):
         return self.firstname + " " + self.lastname
-
