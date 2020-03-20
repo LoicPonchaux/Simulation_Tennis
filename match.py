@@ -41,7 +41,6 @@ class Match:
                 match = self.playGame(self.score.set3)
         # return self.resultMatch() + " " + self.score.displayScore()
         self.winner = self.score.set3.winner
-        print(self.resultMatch())
         return self.score.displayScore()
 
     def playGame(self, set):
