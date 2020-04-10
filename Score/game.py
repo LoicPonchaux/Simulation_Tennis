@@ -11,7 +11,8 @@ class Game():
     def countGame(self):
         """
         Incremente de 1 le nombre de jeu gagner
-        :return:
+        :return: int
+            Le nombre de jeu total
         """
         self.number += 1
 
